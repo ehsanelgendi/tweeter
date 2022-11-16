@@ -40,3 +40,65 @@ textarea {
 .red-counter {
   color: red;
 }
+
+article.tweet-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 5px solid #545149;
+  padding: 50px;
+  width: 100%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+article:hover {
+  box-shadow: 6px 6px lightsteelblue;
+}
+
+article.tweet-container header,
+article.tweet-container footer
+ {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+article.tweet-container .user-avatar {
+  display: flex;
+  align-items: center;
+}
+
+article.tweet-container .user-handle {
+  font-weight: bold;
+  color: lightgray;
+}
+
+article.tweet-container .tweet-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+article.tweet-container footer {
+  border-top: 5px solid #545149;
+  padding: 10px;
+}
+
+article.tweet-container .icons {
+  width: 8%;
+  display: flex;
+  justify-content: space-between;
+  color: #4056A1;
+}
+
+.fa-flag:hover,
+.fa-retweet:hover,
+.fa-heart:hover {
+  color: goldenrod;
+  cursor: pointer;
+}
+
