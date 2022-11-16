@@ -36,3 +36,7 @@ textarea {
 .counter {
   color:#545149;
 }
+
+.red-counter {
+  color: red;
+}
