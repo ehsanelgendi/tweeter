@@ -32,6 +32,17 @@ const data = [
   }
 ]
 
+$('#submit-tweet').submit( (event) => {
+  event.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    data: $('#tweet-text').serialize(),
+    url: "/tweets",
+  });
+
+});
+
 const renderTweets = function(tweets) {
   $('#tweets-container').empty();
   // loops through tweets
