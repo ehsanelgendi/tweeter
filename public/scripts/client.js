@@ -5,31 +5,6 @@
  */
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 
 $(document).ready(function() {
 
@@ -48,13 +23,14 @@ $(document).ready(function() {
 
   $('#submit-tweet').submit( (event) => {
     event.preventDefault();
-    // console.log();
     const $textarea = $('#tweet-text');
     
     if($textarea.val() === "" || $textarea === null) {
-      alert("Tweet is empty!");
+      $('#err-container').addClass('err-msg');
+      $('#err-container').append("⚠️ Tweet is empty! ⚠️");
     } else if ($textarea.val().length > 140) {
-      alert("Tweet shouldn't exceed 140 charachter limit!");
+      $('#err-container').addClass('err-msg');
+      $('#err-container').append("⚠️ Tweet shouldn't exceed 140 charachter limit! ⚠️");
     } else {
       $.ajax({
         type: "POST",
@@ -74,7 +50,6 @@ $(document).ready(function() {
       // calls createTweetElement for each tweet
       item.created_at = timeago.format(item.created_at);
       let tweetElement = createTweetElement(item);
-      // console.log(tweetElement);
       // takes return value and appends it to the tweets container
       $('#tweets-container').append(tweetElement);
     };
