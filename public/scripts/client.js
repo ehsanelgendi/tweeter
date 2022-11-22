@@ -44,16 +44,26 @@ $(document).ready(function() {
   };
 
   loadTweets();
+  
 
   $('#submit-tweet').submit( (event) => {
     event.preventDefault();
-
-    $.ajax({
-      type: "POST",
-      data: $('#tweet-text').serialize(),
-      url: "/tweets",
-    });
-
+    // console.log();
+    const $textarea = $('#tweet-text');
+    
+    if($textarea.val() === "" || $textarea === null) {
+      alert("Tweet is empty!");
+    } else if ($textarea.val().length > 140) {
+      alert("Tweet shouldn't exceed 140 charachter limit!");
+    } else {
+      $.ajax({
+        type: "POST",
+        data: $textarea.serialize(),
+        url: "/tweets",
+      });
+  
+    }
+  
   });
 
   const renderTweets = function(tweets) {
