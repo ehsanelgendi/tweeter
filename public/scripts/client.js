@@ -60,10 +60,11 @@ $(document).ready(function() {
         type: "POST",
         data: $textarea.serialize(),
         url: "/tweets",
+        success: function(msg){
+          window.location.reload();
+       }
       });
-  
     }
-  
   });
 
   const renderTweets = function(tweets) {
@@ -73,20 +74,21 @@ $(document).ready(function() {
       // calls createTweetElement for each tweet
       item.created_at = timeago.format(item.created_at);
       let tweetElement = createTweetElement(item);
-      console.log(tweetElement);
+      // console.log(tweetElement);
       // takes return value and appends it to the tweets container
       $('#tweets-container').append(tweetElement);
     };
   };
 
   const createTweetElement = function (tweet) {
+    const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
     let tweetContainer = `
           <article class="tweet-container">
             <header>
               <div class="user-avatar"><img src="${tweet.user.avatars}" alt="img"><b>&nbsp;${tweet.user.name}</b></div>
               <div class="user-handle">${tweet.user.handle}</div>
             </header>
-            <p class="tweet-text">${tweet.content.text}</p>
+            <p class="tweet-text">${safeHTML}</p>
             <footer>
               <div>${tweet.created_at}</div>
               <div class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></div>
@@ -94,6 +96,13 @@ $(document).ready(function() {
           </article>
     `;
     return tweetContainer;
+  };
+
+  // to prevent cross-site scripting
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
 
 });
