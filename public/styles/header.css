@@ -1,11 +1,15 @@
 header.user-info {
-  height: 640px;
+  padding-top: 120px;
+  height: 520px;
   width: 100%;
-  /* padding-top: 120; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #b69d49;
+  background-color: #4056A1;
   background-image: url(../images/cross-scratches.png);
+}
+
+header.user-info .name {
+  color:white;
 }

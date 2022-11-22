@@ -1,7 +1,9 @@
 nav {
   height: 120px;
   width: 100%;
+  /* background-color: #4056A1; */
   background-color: #4056A1;
+  background-image: url(../images/cross-scratches.png);
   color: #FFFFFF;
   padding: 1.5em;
   display: flex;
@@ -9,6 +11,7 @@ nav {
   align-items: flex-end;
   position: fixed;
   top: 0;
+  z-index: 5;
 }
 
 nav .logo {
@@ -16,10 +19,13 @@ nav .logo {
   font-size: 40px;
 }
 
-nav .new-tweet {
+nav .write-new-tweet {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
+.write-new-tweet:hover {
+  cursor: pointer; 
 }
