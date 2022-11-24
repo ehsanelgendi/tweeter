@@ -3,10 +3,11 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+@use 'variables';
+
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,17 +15,19 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
-  color: #545149;
+  color: variables.$secondary-color;
   background-color: #f4f1ec;
   font-size: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .container {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: variables.$default-font-stack;
   width: 90%;
   background-color: #f4f1ec;
   margin-top: 50px;
@@ -38,8 +41,10 @@ body {
     justify-content: space-around;
     align-items: stretch;
   }
+
   main.container {
     width: 60%;
     margin-top: 200px;
+    
   }
 }

@@ -1,3 +1,5 @@
+@use 'variables';
+
 header.user-info {
   padding-top: 120px;
   height: 520px;
@@ -6,12 +8,12 @@ header.user-info {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #4056A1;
+  background-color: variables.$main-color;
   background-image: url(../images/cross-scratches.png);
 }
 
 header.user-info .name {
-  color: white;
+  color:white;
 }
 
 @media only screen and (min-width: 1024px) {

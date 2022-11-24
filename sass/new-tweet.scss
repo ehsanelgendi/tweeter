@@ -1,16 +1,18 @@
+@use 'variables';
+
 section .new-tweet {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: variables.$default-font-stack;
 }
 
 textarea {
   width: 100%;
   border-style: none;
   outline: none;
-  border-bottom: 5px solid #545149;
-  color: #545149;
+  border-bottom: 5px solid variables.$secondary-color;
+  color: variables.$secondary-color;
   background-color: #f4f1ec;
   font-weight: bold;
   font-size: 30px;
@@ -21,13 +23,13 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-family: "Bungee", sans-serif;
+  font-family: variables.$main-font-stack;
   margin-top: 5px;
 }
 
 .btn-tweet {
-  background-color: #4056A1;
-  color: #FFFFFF;
+  background-color: variables.$main-color;
+  color:#FFFFFF;
   padding: 5px;
 }
 
@@ -36,7 +38,7 @@ textarea {
 }
 
 .counter {
-  color: #545149;
+  color: variables.$secondary-color;
 }
 
 .red-counter {
@@ -46,7 +48,7 @@ textarea {
 article.tweet-container {
   margin-top: 50px;
   margin-bottom: 50px;
-  border: 5px solid #545149;
+  border: 5px solid variables.$secondary-color;
   padding: 50px;
   width: 100%;
 }
@@ -56,7 +58,8 @@ article:hover {
 }
 
 article.tweet-container header,
-article.tweet-container footer {
+article.tweet-container footer
+ {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -82,7 +85,7 @@ article.tweet-container .tweet-text {
 }
 
 article.tweet-container footer {
-  border-top: 5px solid #545149;
+  border-top: 5px solid variables.$secondary-color;
   padding: 10px;
 }
 
@@ -90,7 +93,7 @@ article.tweet-container .icons {
   width: 8%;
   display: flex;
   justify-content: space-between;
-  color: #4056A1;
+  color: variables.$main-color;
 }
 
 .fa-flag:hover,
