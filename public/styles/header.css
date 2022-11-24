@@ -13,3 +13,10 @@ header.user-info {
 header.user-info .name {
   color:white;
 }
+
+@media only screen and (min-width: 1024px) {
+  header.user-info {
+    width: 30%;
+    margin-top: 200px;
+  }
+}

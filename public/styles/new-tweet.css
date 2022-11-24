@@ -129,6 +129,13 @@ article.tweet-container .icons {
   border-radius: 30px;
 }
 
-#scroll-top-btn:hover {
+#scroll-top-btn:hover,
+.fa-angles-down:hover {
   cursor: pointer;
+}
+
+#new-tweet-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

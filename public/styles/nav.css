@@ -1,7 +1,6 @@
 nav {
   height: 120px;
   width: 100%;
-  /* background-color: #4056A1; */
   background-color: #4056A1;
   background-image: url(../images/cross-scratches.png);
   color: #FFFFFF;
@@ -28,4 +27,11 @@ nav .write-new-tweet {
 
 .write-new-tweet:hover {
   cursor: pointer; 
+}
+
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+  body nav {
+    background-image: none;
+  }
 }

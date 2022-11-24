@@ -33,8 +33,10 @@
     <nav>
       <span class="logo">tweeter</span>
       <div class="write-new-tweet">
-        <span id="new-tweet-btn">Write a new tweet</span>
-        <i class="fa-solid fa-angles-down" style="color: red;"></i>
+        <span id="new-tweet-btn">
+          <span>Write a new tweet</span>
+          <i class="fa-solid fa-angles-down" style="color: red;"></i>
+        </span>
       </div>
     </nav>
 
@@ -51,7 +53,6 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet" id="add-new-tweet-container">
-        <h2>Compose Tweet</h2>
         <div id="err-container"></div>
         <form action="/tweets" method="POST" id="submit-tweet">
           <!-- <label for="tweet-text">What are you humming about?</label> -->
@@ -66,7 +67,7 @@
       <section id="tweets-container">
       </section>
 
-      <button onclick="topFunction()" id="scroll-top-btn">top</button>
+      <button onclick="topFunction()" id="scroll-top-btn"><img src="../images/up-chevron.png" width="20px" height="20px"/></button>
     </main>
   </body>
 </html>
