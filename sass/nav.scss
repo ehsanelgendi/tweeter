@@ -1,9 +1,9 @@
-@use 'variables';
+@use 'variables' as v;
 
 nav {
   height: 120px;
   width: 100%;
-  background-color: variables.$main-color;
+  background-color: v.$main-color;
   background-image: url(../images/cross-scratches.png);
   color: #FFFFFF;
   padding: 1.5em;
@@ -13,18 +13,17 @@ nav {
   position: fixed;
   top: 0;
   z-index: 5;
-}
 
-nav .logo {
-  font-family: variables.$main-font-stack;
-  font-size: 40px;
-}
+  .logo {
+    font-family: v.$main-font-stack;
+    font-size: 40px;
+  }
 
-nav .write-new-tweet {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  .write-new-tweet {
+    @include v.col-center-H;
+    align-items: center;
+  }
+
 }
 
 .write-new-tweet:hover {

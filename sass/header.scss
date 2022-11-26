@@ -1,14 +1,11 @@
-@use 'variables';
+@use 'variables' as v;
 
 header.user-info {
+  @include v.col-center-HV;
   padding-top: 120px;
   height: 520px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: variables.$main-color;
+  background-color: v.$main-color;
   background-image: url(../images/cross-scratches.png);
 }
 

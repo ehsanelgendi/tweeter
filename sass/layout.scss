@@ -3,7 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-@use 'variables';
+@use 'variables' as v;
 
 html {
   box-sizing: border-box;
@@ -17,17 +17,15 @@ html {
  */
 
 body {
-  color: variables.$secondary-color;
+  color: v.$secondary-color;
   background-color: #f4f1ec;
   font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include v.col-center-V;
   
 }
 
 .container {
-  font-family: variables.$default-font-stack;
+  font-family: v.$default-font-stack;
   width: 90%;
   background-color: #f4f1ec;
   margin-top: 50px;
