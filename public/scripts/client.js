@@ -8,6 +8,7 @@
 
 $(document).ready(function() {
 
+  // create ajax call to get the tweets from server
   const loadTweets = function() {
     $.ajax({
       type: "GET",
@@ -21,41 +22,46 @@ $(document).ready(function() {
   loadTweets();
   
 
-  $('#submit-tweet').submit( (event) => {
+  // add event on button submit to check the tweet validity then create post call to server
+  $('#submit-tweet').submit((event) => {
     event.preventDefault();
+    $('#err-container').removeClass('err-msg');
+    $('#err-container').empty();
     const $textarea = $('#tweet-text');
-    
-    if($textarea.val() === "" || $textarea === null) {
+    // check if tweet textarea is empty or reached max characters
+    if ($textarea.val() === "" || $textarea === null) {
       $('#err-container').addClass('err-msg');
       $('#err-container').append("⚠️ Tweet is empty! ⚠️");
     } else if ($textarea.val().length > 140) {
       $('#err-container').addClass('err-msg');
       $('#err-container').append("⚠️ Tweet shouldn't exceed 140 charachter limit! ⚠️");
     } else {
+      // ajax call to post the new tweet
       $.ajax({
         type: "POST",
         data: $textarea.serialize(),
         url: "/tweets",
-        success: function(msg){
+        success: function() {
           window.location.reload();
-       }
+        }
       });
     }
   });
 
+  // take tweets object and prepend each tweet to the tweet element in html
   const renderTweets = function(tweets) {
     $('#tweets-container').empty();
     // loops through tweets
     for (const item of tweets) {
-      // calls createTweetElement for each tweet
+      // use timeago to get the time in the "ago" format
       item.created_at = timeago.format(item.created_at);
       let tweetElement = createTweetElement(item);
-      // takes return value and appends it to the tweets container
-      $('#tweets-container').append(tweetElement);
-    };
+      // takes return value and prepend it to the tweets container in reverse chronological order
+      $('#tweets-container').prepend(tweetElement);
+    }
   };
 
-  const createTweetElement = function (tweet) {
+  const createTweetElement = function(tweet) {
     const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
     let tweetContainer = `
           <article class="tweet-container">
@@ -74,7 +80,7 @@ $(document).ready(function() {
   };
 
   // to prevent cross-site scripting
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;

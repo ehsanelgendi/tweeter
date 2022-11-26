@@ -35,7 +35,7 @@
       <div class="write-new-tweet">
         <span id="new-tweet-btn">
           <span>Write a new tweet</span>
-          <i class="fa-solid fa-angles-down" style="color: red;"></i>
+          <i class="fa-solid fa-angles-down"></i>
         </span>
       </div>
     </nav>
@@ -55,7 +55,6 @@
       <section class="new-tweet" id="add-new-tweet-container">
         <div id="err-container"></div>
         <form action="/tweets" method="POST" id="submit-tweet">
-          <!-- <label for="tweet-text">What are you humming about?</label> -->
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="btn-parent">
             <button class="btn-tweet" type="submit">Tweet</button>
@@ -67,7 +66,7 @@
       <section id="tweets-container">
       </section>
 
-      <button onclick="topFunction()" id="scroll-top-btn"><img src="../images/up-chevron.png" width="20px" height="20px"/></button>
+      <button id="scroll-top-btn"><img src="../images/up-chevron.png" width="20px" height="20px"/></button>
     </main>
   </body>
 </html>
