@@ -13,8 +13,6 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 5. Run `npm run sass-watch` for SASS watch.
 
-## Final Product
-
 ## Dependencies
 
 - Express
@@ -22,3 +20,8 @@ This repository is the starter code for the project: Students will fork and clon
 - body-parser
 - chance
 - SASS
+## Final product Screenshots
+
+!["Screenshot of tweeter desktop view"](https://github.com/ehsanelgendi/tweeter/blob/master/docs/desktop_view.png?raw=true)
+!["Screenshot of tweeter mobile view"](https://github.com/ehsanelgendi/tweeter/blob/master/docs/mobile_view.png?raw=true)
+!["Screenshot of tweeter scroll"](https://github.com/ehsanelgendi/tweeter/blob/master/docs/scroll.png?raw=true)
