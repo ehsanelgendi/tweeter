@@ -42,7 +42,7 @@ $(document).ready(function() {
         data: $textarea.serialize(),
         url: "/tweets",
         success: function() {
-          window.location.reload();
+          loadTweets();
         }
       });
     }
