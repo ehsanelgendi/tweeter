@@ -44,6 +44,10 @@ textarea {
 }
 
 article.tweet-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
   margin-bottom: 50px;
   border: 5px solid #545149;
@@ -73,12 +77,11 @@ article.tweet-container .user-handle {
 }
 
 article.tweet-container .tweet-text {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   font-weight: bold;
+  width: 98%;
+  word-wrap: break-word;
 }
 
 article.tweet-container footer {

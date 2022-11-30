@@ -69,7 +69,9 @@ $(document).ready(function() {
               <div class="user-avatar"><img src="${tweet.user.avatars}" alt="img"><b>&nbsp;${tweet.user.name}</b></div>
               <div class="user-handle">${tweet.user.handle}</div>
             </header>
-            <p class="tweet-text">${safeHTML}</p>
+            <div class="tweet-text">
+              <p>${safeHTML}</p>
+            </div>
             <footer>
               <div>${tweet.created_at}</div>
               <div class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></div>
