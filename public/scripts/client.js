@@ -15,15 +15,22 @@ $(document).ready(function() {
       url: "/tweets",
       success: (response) => {
         renderTweets(response);
+      },
+      error: function() {
+        $('#err-container').addClass('err-msg');
+        $('#err-container').append("Something went wrong, please try again later!");
       }
     });
   };
 
   loadTweets();
   
+  const tweetMax = document.getElementById('counter').value;
 
   // add event on button submit to check the tweet validity then create post call to server
   $('#submit-tweet').submit((event) => {
+    const tweetText = document.getElementById('tweet-text');
+    const tweetCount = document.getElementById('counter');
     event.preventDefault();
     $('#err-container').removeClass('err-msg');
     $('#err-container').empty();
@@ -32,9 +39,9 @@ $(document).ready(function() {
     if ($textarea.val() === "" || $textarea === null) {
       $('#err-container').addClass('err-msg');
       $('#err-container').append("⚠️ Tweet is empty! ⚠️");
-    } else if ($textarea.val().length > 140) {
+    } else if ($textarea.val().length > tweetMax) {
       $('#err-container').addClass('err-msg');
-      $('#err-container').append("⚠️ Tweet shouldn't exceed 140 charachter limit! ⚠️");
+      $('#err-container').append(`⚠️ Tweet shouldn't exceed ${tweetMax} charachter limit! ⚠️`);
     } else {
       // ajax call to post the new tweet
       $.ajax({
@@ -42,7 +49,13 @@ $(document).ready(function() {
         data: $textarea.serialize(),
         url: "/tweets",
         success: function() {
+          tweetText.value = '';
+          tweetCount.value = tweetMax;
           loadTweets();
+        },
+        error: function() {
+          $('#err-container').addClass('err-msg');
+          $('#err-container').append("Something went wrong, please try again later!");
         }
       });
     }
